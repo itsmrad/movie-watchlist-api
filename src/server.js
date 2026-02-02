@@ -3,6 +3,7 @@ import express from "express";
 import { connectDB, disconnectDB } from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import movieRoutes from "./routes/movieRoutes.js";
+import watchlistRoutes from "./routes/watchlistRoutes.js"
 
 config();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use("/movies", movieRoutes);
 app.use("/auth", authRoutes);
+app.use("/watchlist", watchlistRoutes)
 
 app.get("/hello", (req, res) => {
 	res.json({
